@@ -6,14 +6,19 @@ public class Homework18 extends BaseTest {
         provideEmail("dagebeyehu@gmail.com");
         providePassword("te$t$tudent");
         clickSubmit();
-        Thread.sleep(millis: 3000);
-        //https://qa.koel.app/
-        clickPlayNextBtn();
+        clickPlay();
+        Assert.assertTrue(isSongPlaying());
     }
-
     private void clickPlayNextBtn() {
-        WebElement playNextBtn = driver.findElement(By.cssSelector("[data-testid='play-next-btn']"));
+        WebElement playNextBtn = driver.findElement(By.cssSelector("//[@data-testid='play-next-btn']"));
+        WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
+
+        playNextButton.click();
         playNextBtn.click();
-        Thread.sleep(millis: 3000);
+
+    }
+    public boolean isSongPlaying() {
+        WebElement soundBar = driver.findElement(By.xpath("//div[@data-testid='sound-bar-play']"));
+        return soundBar.isDisplayed();
     }
 }

@@ -32,6 +32,5 @@ public class LoginTests extends BaseTest {
         providePassword("");
         clickSubmit();
         Assert.assertEquals(driver.getCurrentUrl(), url);
-
     }
 }

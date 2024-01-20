@@ -41,7 +41,7 @@ public class HW19 extends BaseTest {
     }
 
     private void clickonPlaylist() {
-        WebElement Playlist = driver.findElement(By.cssSelector("[href='#!/playlist/85794']"));
+        WebElement Playlist = driver.findElement(By.cssSelector("[href='#!/playlist/85967']"));
         Playlist.click();
     }
 

@@ -7,27 +7,32 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class HomePage extends BasePage {
+    private By allSongs = By.cssSelector("li a.songs");
+    private By playBtn = By.cssSelector(".playback");
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
-//    public HomePage(WebDriver driver) {
-//        super(driver);
-//    }
 
     public void clickOnPlaylist(String playlistName) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'" + playlistName + "')]"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'" + playlistName + "')]")))
+                .click();
     }
 
-    public void clickAllSongs() {
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li a.songs"))).click();
+    public HomePage clickAllSongs() {
+        driver.findElement(allSongs).click();
+        return this;
     }
-    public void clickPlay() {
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".playback"))).click();
+    public HomePage clickPlay() {
+        driver.findElement(playBtn).click();
+        return this;
+
     }
     public  void checkSongIsPlaying() {
         WebElement soundBar = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='sound-bar-play']")));
         Assert.assertTrue(soundBar.isDisplayed());
     }
+
     public void checkIfPlayBtnIsVisible() {
         WebElement playBtn =   wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[data-testid='play-btn']")));
         Assert.assertTrue(playBtn.isDisplayed());

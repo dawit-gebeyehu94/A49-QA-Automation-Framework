@@ -13,14 +13,14 @@ public class PlayListTests extends BaseTest{
         loginPage.loginCorrectCred();
         playListName ="Dawits Playlist"+basePage.generateRandomName();
     }
-    @Test(priority = 1)
+    @Test
     public void createPlaylist()  {
         playlistPage.clickOnCreatePlaylistBtn();
         playlistPage.clickOnCreateNewPlaylist();
         playlistPage.enterNewPlaylistName(playListName);
         basePage.checkShowSuccess();
     }
-    @Test(priority = 2)
+    @Test
     public void renamePlaylist()  {
         playlistPage.doubleClickOnPlaylist(playListName);
         playListName ="Updated"+ playListName;
@@ -28,7 +28,7 @@ public class PlayListTests extends BaseTest{
         playlistPage.checkMessage(playListName);
     }
 
-    @Test(priority = 3)
+    @Test
     public void deletePlaylist()  {
         playlistPage.clickOnPlaylist(playListName);
         playlistPage.clickOnDeletePlaylistBtn();

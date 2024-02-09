@@ -1,7 +1,7 @@
 package StepDefinitions;
 
-import PageFactory.HomePage;
-import PageFactory.LoginPage;
+import pagefactory.HomePage;
+import pagefactory.LoginPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -37,28 +37,6 @@ public class LoginSteps {
     public void openLoginPage() {
         driver.get("https://qa.koel.app/");
     }
-
-    // Without PAGE OBJECTS
-
-//    @When("I enter email {string}")
-//    public void i_enter_email(String email) {
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='email']"))).sendKeys(email);
-//    }
-//    @And("I enter password {string}")
-//    public void i_enter_password(String password) {
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='password']"))).sendKeys(password);
-//    }
-//    @And("I submit")
-//    public void clickSubmit() {
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("[type='submit']"))).click();
-//    }
-//    @Then("I am logged in")
-//    public void userIsLoggedIn() {
-//        Assert.assertTrue(wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img.avatar"))).isDisplayed());
-//    }
-
-    // Using PAGE OBJECTS
-
     @When("I enter email {string}")
     public void i_enter_email(String email) {
         LoginPage loginPage = new LoginPage(driver);

@@ -9,8 +9,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
@@ -18,29 +16,24 @@ import java.time.Duration;
 import java.util.HashMap;
 
 public class BaseTest {
+    private static final ThreadLocal<WebDriver> threadLocal = new ThreadLocal<>();
     public WebDriver driver = null;
     public String url = "https://qa.koel.app/";
-    public ThreadLocal<WebDriver> threadLocal = null;
 
-    @BeforeSuite
-    static void setupClass() {
-        WebDriverManager.chromedriver().setup();
-        //        WebDriverManager.chromedriver().setup();
-    }
     @BeforeMethod
     public void launchBrowser() throws MalformedURLException {
         threadLocal.set(pickBrowser(System.getProperty("browser")));
-        getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
+        threadLocal.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         navigateToPage();
     }
 
     public WebDriver getDriver() {
         return threadLocal.get();
     }
+
     @AfterMethod
     public void closeBrowser() {
-        getDriver().quit();
+        getDriver().close();
         threadLocal.remove();
     }
 
@@ -95,9 +88,10 @@ public class BaseTest {
 
             default:
                 WebDriverManager.chromedriver().setup();
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--remote-allow-origins=*");
-                return driver = new ChromeDriver(chromeOptions);
+                ChromeOptions optionsChrome = new ChromeOptions();
+                optionsChrome.addArguments("--disable-notifications", "--remote-allow-origins=*", "--incognito", "--start-maximized");
+                optionsChrome.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+                return driver = new ChromeDriver(optionsChrome);
         }
     }
 

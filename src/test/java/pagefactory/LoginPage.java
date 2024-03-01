@@ -15,7 +15,7 @@ public class LoginPage extends BasePage {
         super(givenDriver);
     }
     public void loginCorrectCred() {
-        provideEmail("dagebeyehu@gmail.com");
+        provideEmail("dawit.gebeyehu@testpro.io");
         providePassword("yozca5uQiLxb!");
         clickSubmit();
     }

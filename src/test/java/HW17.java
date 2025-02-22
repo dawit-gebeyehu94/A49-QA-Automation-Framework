@@ -20,7 +20,7 @@ public class HW17 extends BaseTest {
         Assert.assertEquals(getAppToPlaylistSuccessMsg(), expectedSongAddedMessage);
     }
 
-    private byte[] getAppToPlaylistSuccessMsg() {
+    public String getAppToPlaylistSuccessMsg() {
         WebElement notification = driver.findElement(By.cssSelector("div.success.show"));
         return notification.getText();
     }
@@ -50,7 +50,7 @@ public class HW17 extends BaseTest {
     }
 
     public void searchSong(String name) throws InterruptedException {
-        WebElement searchField = driver.findElement(By.cssSelector("div#searchform input[type='search']");
+        WebElement searchField = driver.findElement(By.cssSelector("div#searchform input[type='search']"));
         searchField.sendKeys(name);
         Thread.sleep(2000);
     }

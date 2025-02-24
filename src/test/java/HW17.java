@@ -26,7 +26,7 @@ public class HW17 extends BaseTest {
     }
 
     public void choosePlaylist() throws InterruptedException {
-        WebElement choosePL = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//li{contains,(),'Hello Playlist'"));
+        WebElement choosePL = driver.findElement(By.xpath("//section[@id='songResultsWrapper']//li{contains,(),'Hello Playlist']"));
         choosePL.click();
         Thread.sleep(2000);
     }
@@ -38,7 +38,7 @@ public class HW17 extends BaseTest {
     }
 
     public void CLickFirstSongResult() throws InterruptedException {
-        WebElement firstSong = driver.findElement(By.xpath("//section[@id=songResultWrapper']tri[@class='song item][1]"));
+        WebElement firstSong = driver.findElement(By.xpath("//section[@id=songResultWrapper']tri[@class='song item'][1]"));
         firstSong.click();
         Thread.sleep(2000);
     }

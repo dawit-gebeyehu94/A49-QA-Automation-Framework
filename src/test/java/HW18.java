@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 public class HW18 extends BaseTest{
     @Test
     public void playSong() {
+        navigateToPage();
         provideEmail("dawit.gebeyehu@testpro.io");
         providePassword("yozca5uQiLxb!");
         clickSubmit();
@@ -22,7 +23,7 @@ public class HW18 extends BaseTest{
 
     public void clickPlay() {
         WebElement playNextButton = driver.findElement(By.xpath("//i[@data-testid='play-next-btn']"));
-        WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn"));
+        WebElement playButton = driver.findElement(By.xpath("//span[@data-testid='play-btn']"));
         playNextButton.click();
         playButton.click();
 

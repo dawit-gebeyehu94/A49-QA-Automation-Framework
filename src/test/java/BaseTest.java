@@ -73,7 +73,7 @@ public class BaseTest {
     }
 
     public void openPlaylist() {
-        WebElement emptyPlaylist = driver.findElement(By.cssSelector(".playlist:nth-child(8)"));
+        WebElement emptyPlaylist = driver.findElement(By.cssSelector("//a[contains(text(), 'Hello Playlist')]"));
         emptyPlaylist.click();
     }
     public void loginCorrectCred() {

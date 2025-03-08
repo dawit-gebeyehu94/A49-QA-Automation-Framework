@@ -7,6 +7,9 @@
         <classes>
             <class name="LoginTests"/>
             <class name="BaseTest"/>
+            <class name="PlayListsTests"/>
+            <class name="ActionsClass"/>
+            <class name="HW21"/>
         </classes>
     </test>
 </suite>

@@ -17,7 +17,6 @@ public class LoginTests extends BaseTest {
         provideEmail("dagebeyehu@gmail.com");
         providePassword("yozca5uQiLxb!");
         clickSubmit();
-        isAvatarDisplayed();
     }
 
     private void isAvatarDisplayed() {

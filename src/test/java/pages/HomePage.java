@@ -42,6 +42,8 @@ public class HomePage extends BasePage{
                 elementToBeClickable(By.xpath("//section[@id='songsWrapper']//td[text()='"+songName+"']")));
         actions.contextClick(song).perform();
     }
+    private static WebDriver driver;
+
     public static String getSuccessMessage() {
         WebElement renamePlaylistSuccessMsg = driver.findElement(By.cssSelector("div.success.show"));
         return renamePlaylistSuccessMsg.getText();

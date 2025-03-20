@@ -45,7 +45,7 @@ public class HomePage extends BasePage{
     private static WebDriver driver;
 
     public static String getSuccessMessage() {
-        WebElement renamePlaylistSuccessMsg = driver.findElement(By.cssSelector("div.success.show"));
+        WebElement renamePlaylistSuccessMsg = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div.success.show")));
         return renamePlaylistSuccessMsg.getText();
     }
 }

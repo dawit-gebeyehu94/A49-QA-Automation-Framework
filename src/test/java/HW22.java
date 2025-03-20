@@ -15,7 +15,6 @@ public class HW22 extends BaseTest {
         PlaylistPage.clickOnCreatePlaylistBtn();
         PlaylistPage.clickOnCreateNewPlaylist();
         PlaylistPage.enterNewPlaylistName("TestPro");
-
         Assert.assertEquals(HomePage.getSuccessMessage(), newPlaylistName);
 
     }

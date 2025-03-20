@@ -13,7 +13,7 @@ import java.util.UUID;
 
 public class BasePage {
     WebDriver driver;
-    WebDriverWait wait;
+    static WebDriverWait wait;
     Actions actions;
 
     public BasePage(WebDriver driver) {
